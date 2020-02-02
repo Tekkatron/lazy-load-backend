@@ -15,8 +15,8 @@ ENV DB_HOST=hostname \
 EXPOSE 9000
 
 
-COPY ./launcher.sh /usr/local/bin
+COPY ./launcher.sh .
 
-RUN chmod +x /usr/local/bin/launcher.sh
+RUN chmod +x launcher.sh
 
-ENTRYPOINT ["launcher.sh"]
+ENTRYPOINT ["./launcher.sh"]
