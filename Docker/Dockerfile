@@ -4,13 +4,19 @@ MAINTAINER Andres Chavez (Tekka) <andres.chavez@sappturn.com>
 WORKDIR /app
 
 COPY ./build .
+COPY ./application.yaml .
 
-ENV DB_HOST ""
-ENV DB_PORT ""
-ENV DB_NAME ""
-ENV DB_USER ""
-ENV DB_PASS ""
+ENV DB_HOST=hostname \
+    DB_PORT=7788 \
+    DB_NAME=dbname \
+    DB_USER=user \
+    DB_PASS=secret
 
 EXPOSE 9000
 
-CMD [ "java -jar build/libs/lazy-load-app-1.0.jar --spring.config.location=./application.yaml" ]
+
+COPY ./launcher.sh /usr/local/bin
+
+RUN chmod +x /usr/local/bin/launcher.sh
+
+ENTRYPOINT ["launcher.sh"]
