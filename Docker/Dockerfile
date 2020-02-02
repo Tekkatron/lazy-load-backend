@@ -5,7 +5,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN git clone https://github.com/Tekkatron/lazy-load-backend.git 
 
 
 CMD [ "java -jar build/libs/lazy-load-app-1.0.jar --spring.config.location=./application.yaml" ]
