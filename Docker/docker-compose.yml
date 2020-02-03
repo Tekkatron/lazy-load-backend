@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+    lazyload-backend:
+        image: tekkadev/lazyload-back:$Build.BuildId
+        container_name: lazyload-backend
+        ports:
+        - 9000:9000
